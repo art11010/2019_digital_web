@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>문서 제목</title>
+	<style>
+		div.wrap{width: 500px;background-color: #ddd;margin: 0 auto;}
+		/*div.wrap:after{content: "";clear:both;display: block;}*/
+		div.wrap>div{width: 200px;}
+		div.wrap:after{content: "";clear: both;display: block;}
+		div.wrap>div.box01{background-color: skyblue;float: left;margin-left: 20px;}
+		div.wrap>div.box02{background-color: pink;float: right;margin-right: 20px;}
+
+		div.box05{width: 500px;height: 100px;background-color: blue;margin: 0 auto;}
+		/*div.wrap>div.box03{width: 400px;background-color: orange;clear: both;}*/
+
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="box01">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit odio, fugiat id qui laborum facere numquam, nostrum veniam iure et, provident accusamus omnis consectetur illum temporibus quaerat impedit! At, laboriosam.</div>
+		<div class="box02">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo magni pariatur debitis iure quos impedit, explicabo ipsa id ducimus laborum.</div>
+		<!-- <div class="box03">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis, similique!</div> -->
+	</div>
+
+	<div style="height: 400px;background-color: gray;"></div>
+	<div class="box05">안녕하세요.</div>
+</body>
+</html>
