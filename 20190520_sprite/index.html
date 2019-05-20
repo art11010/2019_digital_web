@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>sprite</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		div.icon_wrap{}
+		div.icon_wrap .btn{float: left;
+			width: 30px;height: 30px;
+			background-image: url(../images/icon-sprite.png);
+			text-indent: -1000px;cursor: pointer;}
+
+		div.icon_wrap .item01{background-position:0 -330px;transition: 0.3s;}
+		div.icon_wrap .item02{background-position:-40px -330px;transition: 0.3s;}
+		div.icon_wrap .item03{background-position:-80px -330px;transition: 0.3s;}
+		div.icon_wrap .item04{background-position:-120px -330px;transition: 0.3s;}
+		div.icon_wrap .item05{background-position:-160px -330px;transition: 0.3s;}
+
+		div.icon_wrap .item01:hover{background-position:0 -360px;}
+		div.icon_wrap .item02:hover{background-position:-40px -360px;}
+		div.icon_wrap .item03:hover{background-position:-80px -360px;}
+		div.icon_wrap .item04:hover{background-position:-120px -360px;}
+		div.icon_wrap .item05:hover{background-position:-160px -360px;}
+
+		div.icon_wrap .item01.active{background-position:0px -360px;}
+		div.icon_wrap .item02.active{background-position:-40px -360px;}
+		div.icon_wrap .item03.active{background-position:-80px -360px;}
+		div.icon_wrap .item04.active{background-position:-120px -360px;}
+		div.icon_wrap .item05.active{background-position:-160px -360px;}
+
+		ul.sns_wrap{}
+		ul.sns_wrap>li{float: left;
+			width: 30px;height: 30px;
+			background-image: url(../images/icon-sprite.png);
+			text-indent: -10000px;opacity: 1;transition: 0.3s;
+			margin-right: 10px;}
+		ul.sns_wrap>li:nth-child(1){background-position: -200px -450px;}
+		ul.sns_wrap>li:nth-child(2){background-position: -240px -450px;}
+		ul.sns_wrap>li:nth-child(3){background-position: -280px -450px;}
+
+		ul.sns_wrap>li:hover{opacity: 0.3;background-color: #fff;}
+
+		ul.sns_wrap a{display: block;line-height: 30px;}
+
+		/*.box{width: 100px;height: 100px;background-color: red;
+			color: white;opacity: 1;transition: .3s;}
+		.box:hover{opacity: 0.3;}
+
+		.box1{width: 100px;height: 100px;background-color: rgb(0,255,255,2);
+			color:white;transition: .3s}
+		.box1:hover{background-color: rgb(0,255,255,0.3);}
+
+		.box2{width: 100px;height: 100px;background-color: rgb(0,255,255,1);
+			color:white;display: block;transition: 1s;}
+		.box2:hover{display: none;}*/
+		nav#gnb>div.menu{float: left;width: 140px;height: 50px;
+			background-image: url(../images/sprites.png);
+			text-indent: -1000px;cursor: pointer;}
+		nav#gnb>div.item01{background-position: 0 0;transition: 0.3s;}
+		nav#gnb>div.item02{background-position: -140px 0;transition: 0.3s;}
+		nav#gnb>div.item03{background-position: -280px 0;transition: 0.3s;}
+		nav#gnb>div.item04{background-position: -420px 0;transition: 0.3s;}
+		nav#gnb>div.item05{background-position: -560px 0;transition: 0.3s;}
+		nav#gnb>div.item06{background-position: -700px 0;transition: 0.3s;}
+
+		nav#gnb>div.item01:hover{background-position: 0px -50px;}
+		nav#gnb>div.item02:hover{background-position: -140px -50px;}
+		nav#gnb>div.item03:hover{background-position: -280px -50px;}
+		nav#gnb>div.item04:hover{background-position: -420px -50px;}
+		nav#gnb>div.item05:hover{background-position: -560px -50px;}
+		nav#gnb>div.item06:hover{background-position: -700px -50px;}
+
+		nav#gnb>div.item03.active{background-position: -280px -50px;}
+
+		
+		nav#gnb01>div.menu{width: 140px;height: 50px;
+			background-image: url(../images/top_gnb.png);
+			text-indent: -1000px;cursor: pointer;}
+		nav#gnb01>div.item01{background-position: 0 0;transition: 0.3s;}
+		nav#gnb01>div.item02{background-position: 0 -50px;transition: 0.3s;}
+		nav#gnb01>div.item03{background-position: 0 -100px;transition: 0.3s;}
+		nav#gnb01>div.item04{background-position: 0 -150px;transition: 0.3s;}
+		nav#gnb01>div.item05{background-position: 0 -200px;transition: 0.3s;}
+		nav#gnb01>div.item06{background-position: 0 -250px;transition: 0.3s;}
+
+		nav#gnb01>div.item01:hover{background-position: 0 -350px;}
+		nav#gnb01>div.item02:hover{background-position: 0 -400px;}
+		nav#gnb01>div.item03:hover{background-position: 0 -450px;}
+		nav#gnb01>div.item04:hover{background-position: 0 -500px;}
+		nav#gnb01>div.item05:hover{background-position: 0 -550px;}
+		nav#gnb01>div.item06:hover{background-position: 0 -600px;}
+	</style>
+
+</head>
+<body>
+	<div class="icon_wrap clearfix">
+		<div class="btn item01 active">icon</div>
+		<div class="btn item02">icon</div>
+		<div class="btn item03">icon</div>
+		<div class="btn item04">icon</div>
+		<div class="btn item05">icon</div>
+	</div>
+
+	<ul class="sns_wrap clearfix">
+		<li><a href="http://www.facebook.com">facebook</a></li>
+		<li><a href="http://www.youtube.com">youtube</a></li>
+		<li><a href="http://twitter.com">twitter</a></li>
+	</ul>
+
+<!-- 	<div class="box">안녕하세요</div>
+	<div class="box1">안녕하세요</div>
+	<div class="box2">안녕하세요</div> -->
+
+	<nav id="gnb" class="clearfix">
+		<div class="menu item01"><a href="#">지역</a></div>
+		<div class="menu item02"><a href="#">쇼핑</a></div>
+		<div class="menu item03 active"><a href="#">문화</a></div>
+		<div class="menu item04"><a href="#">여행</a></div>
+		<div class="menu item05"><a href="#">레저</a></div>
+		<div class="menu item06"><a href="#">추천</a></div>
+	</nav>
+
+	<nav id="gnb01">
+		<div class="menu item01"><a href="#">지역</a></div>
+		<div class="menu item02"><a href="#">쇼핑</a></div>
+		<div class="menu item03 active"><a href="#">문화</a></div>
+		<div class="menu item04"><a href="#">여행</a></div>
+		<div class="menu item05"><a href="#">레저</a></div>
+		<div class="menu item06"><a href="#">추천</a></div>
+	</nav>
+
+</body>
+</html>
