@@ -16,7 +16,8 @@ body{background-color: #cdcdcd;}
 #content fieldset .field{
 	border-bottom: 1px solid #f0f0f0;position: relative;
 }
-#content fieldset .field .inp-field{width: 350px;height: 49px;border:0 none;font-size: 15px;text-indent:12px; color: #999;
+#content fieldset .field .inp-field{width: 350px;height: 49px;border:0 none;
+	font-size: 15px;text-indent:12px; color: #999;
 }
 
 #content fieldset .field .ico{
@@ -41,6 +42,14 @@ body{background-color: #cdcdcd;}
 #content fieldset .field.btn-radio input{
 	position: relative;left: 50px;top: 14px;}
 
+#content fieldset .field.birth label{
+	float: left;
+	width: 53px;height: 49px;border-right: 1px solid #efefef; 
+	background-color: #f7f7f7;color: #999;line-height: 49px;
+	text-align: center;}
+
+#content fieldset .field.birth input{float: left;}
+
 #content fieldset .field.birth .field-wall{
 	float: left;
 	width: 0;height: 29px;margin-top: 10px;
@@ -48,6 +57,7 @@ body{background-color: #cdcdcd;}
 	text-indent: -99999px;}
 
 #content fieldset .field.birth select{
+	float: left;
 	width: 110px;height: 29px;border: 0 none;font-style: 15px;
 	font-weight: bold;line-height: 29px;margin-left: 17px;
 	background:url(../images/sel_arr.gif) no-repeat 100% 50%;}
