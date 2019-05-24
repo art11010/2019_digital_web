@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>pc layout</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<style>
+		#main_header{width: 960px;height: 160px;margin: 0 auto;
+			_background-color: skyblue;position:relative;margin-bottom: 10px;}
+
+		#main_header>#logo{top: 30px;position: absolute;}
+		#main_header>#util_menu{position: absolute;top: 0;right:0;}
+		
+		/*util_menu*/
+		#util_menu>ul{}
+		#util_menu>ul>li{float: left;padding: 2px 10px;
+			border: 1px solid #000;border-left: 0 none;}
+		#util_menu>ul>li>a{display: block}
+		#util_menu>ul>li:first-child{border-left: 1px solid #000;
+			border-radius:10px 0 0 10px;}
+		#util_menu>ul>li:last-child{border-radius:0 10px 10px 0;}
+		#util_menu>ul>li:hover{background-color: #000;}
+		#util_menu>ul>li>a:hover{color: #fff;}
+
+		#main_header>#main_gnb{position: absolute;bottom: 0;right:0;}
+		
+		/*main_gnb*/
+		#main_gnb>ul{}
+		#main_gnb>ul>li{float: left;padding: 10px 20px;
+			border: 1px solid #000;border-left: 0 none;}
+		#main_gnb>ul>li>a{display: block}
+		#main_gnb>ul>li:first-child{border-left: 1px solid #000;
+			border-radius:10px 0 0 10px;}
+		#main_gnb>ul>li:last-child{border-radius:0 10px 10px 0}
+		#main_gnb>ul>li:hover{background-color: #000;}
+		#main_gnb>ul>li>a:hover{color: #fff;}
+		
+		/*content*/
+		#content{width: 960px;margin: 0 auto;}
+		#content>#main_section{width: 750px;float: left;}
+		#main_section>.main_article{padding: 20px;border: 1px solid #000;
+			margin-bottom: 10px;}
+		#content>#main_aside{width: 700px;float: right;}
+	</style>
+</head>
+<body>
+	<header id="main_header">
+		<div id="logo">
+			<h1>Lorem ipsum.</h1>
+		</div>
+		<nav id="util_menu">
+			<ul class="clearfix">
+				<li><a href="#">menu1</a></li>
+				<li><a href="#">menu2</a></li>
+				<li><a href="#">menu3</a></li>
+				<li><a href="#">menu4</a></li>
+				<li><a href="#">menu5</a></li>
+			</ul>
+		</nav>
+		<nav id="main_gnb">
+			<ul class="clearfix">
+				<li><a href="#">MENU1</a></li>
+				<li><a href="#">MENU2</a></li>
+				<li><a href="#">MENU3</a></li>
+				<li><a href="#">MENU4</a></li>
+				<li><a href="#">MENU5</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div id="content" class="clearfix">
+		<section id="main_section">
+			<!-- article.main_article*3>h2>{main_article}^p>lorem50 -->
+			<article class="main_article">
+				<h2>main_article</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat provident vitae aspernatur veniam, molestias vel suscipit rerum dicta, illum assumenda. Sit laudantium sequi iste possimus facere quidem officia saepe praesentium dicta repellendus sunt reiciendis fugit, ipsam quibusdam architecto ullam itaque. Ratione quam iste, quis, minus voluptas impedit consequuntur autem. Eveniet.</p>
+			</article>
+			<article class="main_article">
+				<h2>main_article</h2>
+				<p>Earum ipsum, optio natus quo dicta repellendus quasi architecto sapiente. Earum architecto, veritatis quidem placeat hic iure sit delectus molestiae doloremque nisi assumenda, optio minus natus veniam minima voluptates eius magni, quas, unde iste at! A cum quas eaque cumque sint, nam, inventore, aliquid ex doloremque, saepe fuga voluptatum veritatis?</p>
+			</article>
+			<article class="main_article">
+				<h2>main_article</h2>
+				<p>Consectetur nisi doloremque cumque, quia beatae ab quos laudantium illo nulla fuga nobis. In itaque nam voluptate voluptatem dolore suscipit architecto quas numquam earum assumenda, nisi esse nesciunt ratione vel nulla culpa explicabo id quos, velit laboriosam iste aliquam repudiandae quidem! Quam delectus unde non accusamus, reiciendis quia dignissimos reprehenderit!</p>
+			</article>
+		</section>
+		<aside id="main_aside"></aside>
+	</div>
+	<footer id="main_footer"></footer>
+</body>
+</html>
