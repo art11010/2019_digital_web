@@ -41,7 +41,42 @@
 		#content>#main_section{width: 750px;float: left;}
 		#main_section>.main_article{padding: 20px;border: 1px solid #000;
 			margin-bottom: 10px;}
-		#content>#main_aside{width: 700px;float: right;}
+		#content>#main_aside{width: 200px;float: right;}
+
+		/*menu*/
+		.inp:nth-child(1){display: none;}
+		.inp:nth-child(1) ~ div.tab_item1{display: none;}
+		.inp:nth-child(1):checked ~ div.tab_item1{display:block;}
+
+		.inp:nth-child(2){display: none;}
+		.inp:nth-child(2) ~ div.tab_item2{display: none;}
+		.inp:nth-child(2):checked ~ div.tab_item2{display:block;}
+
+		section.bottons>label{display: block;float: left;
+			width: 100px;height: 30px;line-height: 30px;text-align: center;
+			_border: 1px solid #000;
+			background-color: #fff;
+			cursor:pointer;
+			border-radius: 10px 10px 0 0;
+			border-bottom: 2px solid #f00;}
+		section.bottons>label:first-child{_border-right: 0 none;}
+
+		.inp:nth-child(1):checked ~ section.bottons > label:first-child{
+			background-color: #f00;color: #fff;}
+		.inp:nth-child(2):checked ~ section.bottons > label:last-child{
+			background-color: #f00;color: #fff;}
+
+		.item{padding: 10px;border: 1px solid #000;
+			border-top:0 none;}
+		.thumbnail{float: left;}
+		.description{float: left;margin-left: 10px;}
+		.description > strong{display: block;width: 120px;
+			white-space:nowrap; overflow: hidden; text-overflow: ellipsis;}
+
+		/*footer*/
+		#main_footer{width: 960px;margin: 0 auto;
+			padding:10px;border: 1px solid #000;
+			text-align: center;margin-bottom:20px;}
 	</style>
 </head>
 <body>
@@ -84,8 +119,116 @@
 				<p>Consectetur nisi doloremque cumque, quia beatae ab quos laudantium illo nulla fuga nobis. In itaque nam voluptate voluptatem dolore suscipit architecto quas numquam earum assumenda, nisi esse nesciunt ratione vel nulla culpa explicabo id quos, velit laboriosam iste aliquam repudiandae quidem! Quam delectus unde non accusamus, reiciendis quia dignissimos reprehenderit!</p>
 			</article>
 		</section>
-		<aside id="main_aside"></aside>
+		<aside id="main_aside">
+			<input type="radio" id="first" class="inp" name="tab" checked="checked">
+			<input type="radio" id="second" class="inp" name="tab">
+			
+			<section class="bottons clearfix">
+				<label for="first">first</label>
+				<label for="second">second</label>
+			</section>
+
+			<div class="tab_item1">
+				<ul>
+					<li class="item clearfix">
+						<a href="#">
+						<div class="thumbnail">
+							<img src="https://via.placeholder.com/45" alt="">
+						</div>
+						<div class="description">
+							<strong>Lorem ipsum.11</strong>
+							<p>2019-05-27</p>
+						</div>
+						</a>
+					</li>
+					<li class="item clearfix">
+						<a href="#">
+						<div class="thumbnail">
+							<img src="https://via.placeholder.com/45" alt="">
+						</div>
+						<div class="description">
+							<strong>Lorem ipsum.</strong>
+							<p>2019-05-27</p>
+						</div>
+						</a>
+					</li>
+					<li class="item clearfix">
+						<a href="#">
+						<div class="thumbnail">
+							<img src="https://via.placeholder.com/45" alt="">
+						</div>
+						<div class="description">
+							<strong>Lorem ipsum.</strong>
+							<p>2019-05-27</p>
+						</div>
+						</a>
+					</li>
+					<li class="item clearfix">
+						<a href="#">
+						<div class="thumbnail">
+							<img src="https://via.placeholder.com/45" alt="">
+						</div>
+						<div class="description">
+							<strong>Lorem ipsum.</strong>
+							<p>2019-05-27</p>
+						</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<div class="tab_item2">
+				<ul>
+					<li class="item clearfix">
+						<a href="#">
+						<div class="thumbnail">
+							<img src="https://via.placeholder.com/45" alt="">
+						</div>
+						<div class="description">
+							<strong>Lorem ipsum.2</strong>
+							<p>2019-05-27</p>
+						</div>
+						</a>
+					</li>
+					<li class="item clearfix">
+						<a href="#">
+						<div class="thumbnail">
+							<img src="https://via.placeholder.com/45" alt="">
+						</div>
+						<div class="description">
+							<strong>Lorem ipsum.2</strong>
+							<p>2019-05-27</p>
+						</div>
+						</a>
+					</li>
+					<li class="item clearfix">
+						<a href="#">
+						<div class="thumbnail">
+							<img src="https://via.placeholder.com/45" alt="">
+						</div>
+						<div class="description">
+							<strong>Lorem ipsum.2</strong>
+							<p>2019-05-27</p>
+						</div>
+						</a>
+					</li>
+					<li class="item clearfix">
+						<a href="#">
+						<div class="thumbnail">
+							<img src="https://via.placeholder.com/45" alt="">
+						</div>
+						<div class="description">
+							<strong>Lorem ipsum.2</strong>
+							<p>2019-05-27</p>
+						</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</aside>
 	</div>
-	<footer id="main_footer"></footer>
+	<footer id="main_footer">
+		<h3>html5 + css3</h3>
+		<address>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, reiciendis.</address>
+	</footer>
 </body>
 </html>
