@@ -14,20 +14,20 @@
 	<script>
 		// jquery(document).ready();
 		$(document).ready(function(){
-			var myslider = $('.slider').bxSlider({
+			var myslider = $('.slider').bxslider({
 				auto:true,
 				pager:false,
-				controls:false
+				controls:false,
 			});
-			$('.prevBtn').click(function(){
-				myslider.goToPrevSlide();
-				return false;
-			});
-			$('.nextBtn').click(function(){
-				myslider.goToNextSlide();
-				return false;
-			});
-		})
+		$('.prevBtn').click(function(){
+			myslider.goToPrevSlide();
+			return false; //hash tag 방지
+		});
+		$('.nextBtn').click(function(){
+			myslider.goToNextSlide();
+			return false; //hash tag 방지
+		});
+		});
 	</script>
 	<style>
 		body{background-color: skyblue;}
