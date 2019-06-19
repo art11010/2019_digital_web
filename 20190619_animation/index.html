@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>animation</title>
+	<style>
+		.box{width: 100px;height: 100px;
+			background-color:#f00;
+			position:absolute;
+			bottom: 0; border-radius: 50px;
+			animation:boxmove 2s linear;}
+		@keyframes boxmove{
+			0%{left:0;}
+			50%{left:300px;}
+			100%{left:0;}
+		}
+
+		.box01{width: 200px;height: 10px;
+			background-color: blue;
+			animation:lines 2s linear;}
+		@keyframes lines{
+			from{width: 0;}
+			to{width: 200px;}
+		}
+
+		.box02{width: 0px;height: 10px;
+			background-color: skyblue;
+			animation:lines2 2s linear;
+			animation-delay:2s;
+			animation-fill-mode: forwards;
+			position: absolute;left: 200px;top: 8px;
+		}
+		@keyframes lines2{
+			from{width:0;}
+			to{width:200px;}
+		}
+
+		.button{width: 200px;height: 40px;
+			line-height: 40px;text-align: center;
+			background-color: orange;
+			position: relative;}
+		.bar{width: 200px;height: 5px;
+			position: absolute;bottom: 0;
+			background-color: #f00;
+			animation: btnBar 0.8s;
+			animation-play-state: paused;}
+
+		@keyframes btnBar{
+			from{width: 0;}
+			to{width: 200px;}
+		}
+		.button:hover .bar{
+			animation-play-state: running;
+		}
+
+		.button1{width: 200px;height: 40px;
+			line-height: 40px;text-align: center;
+			background-color: skyblue;
+			position: relative;}
+		.bar1{width: 0;height: 5px;
+			background-color: #f00;
+			position: absolute;
+			transition: 0.3s;
+			bottom: 0;}
+		.button1:hover .bar1{width: 200px;}
+
+		.button2{width: 200px;height: 40px;
+			line-height: 40px;text-align: center;
+			background-color: skyblue;
+			position: relative;}
+		.bar2{width: 200px;height: 5px;
+			background-color: #f00;
+			position: absolute;
+			transition: 0.3s;
+			bottom: 0;
+			transform: scaleX(0);}
+		.button2:hover .bar2{transform: scaleX(1);}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+
+	<div class="box01"></div>
+	<div class="box02"></div>
+
+	<div class="button">
+		안녕하세요
+		<div class="bar"></div>
+	</div>
+
+	<div class="button1">
+		안녕하세요
+		<div class="bar1"></div>
+	</div>
+
+	<div class="button2">
+		안녕하세요
+		<div class="bar2"></div>
+	</div>
+
+	<style>
+		/*box*/
+		.box10{width: 300px;height: 300px;
+			background-color: #d4e6f1;
+			position: relative;
+			cursor: pointer;}
+		/*bar*/
+		.bar10{width: 300px;height: 10px;
+			background-color: #134c91;
+			position: absolute;top: 0;
+			animation: yeji 1s linear;
+			animation-play-state: paused;}
+			@keyframes yeji{
+				from{width: 0}
+				to{width: 300px;}
+			}
+
+		.bar11{width: 10px;height: 300px;
+			background-color: #8aa8c8;
+			position: absolute;right: 0;
+			animation: yeji1 1s linear;
+			animation-delay: 1s;
+			animation-play-state: paused;}
+			@keyframes yeji1{
+				from{height: 0;}
+				to{height: 300px;}
+			}
+
+		.bar12{width: 300px;height: 10px;
+			background-color: #5f8196;
+			position: absolute;bottom: 0;
+			animation: yeji2 1s linear reverse;
+			animation-delay: 2s;
+			animation-play-state: paused;}
+			@keyframes yeji2{
+				from{width: 300px;}
+				to{width: 0;}
+				0%{left: 0;}
+				100%{left: 300px;}
+			}
+
+		.bar13{width: 10px;height: 300px;
+			background-color: #214a68;
+			position: absolute;left: 0;
+			animation: yeji3 1s linear reverse;
+			animation-delay: 3s;
+			animation-play-state: paused;}
+			@keyframes yeji3{
+				from{height: 300px;}
+				to{height: 0;}
+				0%{top: 0;}
+				100%{top: 300px;};
+			}
+
+
+		.box10:hover .bar10{animation-play-state: running;}
+		.box10:hover .bar11{animation-play-state: running;}
+		.box10:hover .bar12{animation-play-state: running;}
+		.box10:hover .bar13{animation-play-state: running;}
+	</style>
+
+	<div class="box10">
+		<div class="bar10"></div>
+		<div class="bar11"></div>
+		<div class="bar12"></div>
+		<div class="bar13"></div>
+	</div>
+
+	<style>
+		.wrapper{width: 250px;height: 250px;
+			background-color: orange;
+			position: relative;}
+		.line1{height: 10px;
+			background-color: #000;
+			animation-name: line1;
+			}
+			@keyframes line1{
+				from{width: 0;}
+				to{width: 250px;}
+			}
+		.line2{width: 10px;
+			background-color: #f00;
+			position: absolute;right: 0;top: 0;
+			animation-name: line2;
+			animation-delay:1s;}
+			@keyframes line2{
+				from{height: 0;}
+				to{height: 250px;}
+			}
+		.line3{height: 10px;
+			background-color: #ff0;
+			position: absolute;right:0;bottom:0;
+			animation-name: line3;
+			animation-delay:2s;}
+			@keyframes line3{
+				from{width: 0;}
+				to{width: 250px;}
+			}
+		.line4{width: 10px;
+			background-color: #0ff;
+			position: absolute;left: 0;bottom: 0;
+			animation-name: line4;
+			animation-delay:3s;}
+			@keyframes line4{
+				from{height: 0;}
+				to{height: 250px;}
+			}
+
+		.line1, .line2, .line3, .line4{animation-duration: 1s;
+			animation-timing-function: linear;
+			animation-fill-mode: forwards;}
+			
+	</style>
+
+	<div class="wrapper">
+		<div class="line1"></div>
+		<div class="line2"></div>
+		<div class="line3"></div>
+		<div class="line4"></div>
+	</div>
+	
+	<style>
+		.text_wrapper{text-align: center;
+			width:800px;height:500px;
+			background-color: #bed5c0;
+			position: relative;}
+
+		.text_wrapper h2{position: absolute;top: 50%;
+			width: 100%;transform: translateY(-50%);
+			font-size: 40px;}
+
+		.text_wrapper h2 span{display: inline-block;
+			animation-name:tani;
+			animation-duration: 1s;
+			animation-fill-mode: forwards;
+			opacity: 0;}
+		.text_wrapper h2 span:nth-child(2){animation-delay:0.2s;}
+		.text_wrapper h2 span:nth-child(3){animation-delay:0.4s;}
+		.text_wrapper h2 span:nth-child(4){animation-delay:0.6s;}
+		.text_wrapper h2 span:nth-child(5){animation-delay:0.8s;}
+		.text_wrapper h2 span:nth-child(6){animation-delay:1s;}
+		.text_wrapper h2 span:nth-child(7){animation-delay:1.2s;}
+		@keyframes tani{
+			from{transform: translate(50px,-50px) rotate(-180deg) scale(5);}
+			to{transform:translate(0) rotate(0) scale(1);opacity: 1;}
+		}
+	</style>	
+
+	<div class="text_wrapper">
+		<h2>
+			<span>L</span>
+			<span>E</span>
+			<span>E</span>
+			<span>Y</span>
+			<span>E</span>
+			<span>J</span>
+			<span>I</span>
+		</h2>
+	</div>
+</body>
+</html>
