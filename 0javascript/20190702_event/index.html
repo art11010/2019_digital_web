@@ -4,10 +4,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta charset="UTF-8">
 	<title>event</title>
-	<style>
-		input{width:100px;height:30px;
-			margin:0 0 10px 10px;}
-	</style>
+	<script>
+		window.onload=function(){
+			var img = document.getElementById("img");
+			alert(img.height);
+		}
+	</script>
 </head>
 <body>
 	<p id="p1">마우스를 올려보세요</p>
@@ -39,18 +41,64 @@
 	</script>
 
 	<div>마우스 관련
-		<span onmousedown="down(this)" onmouseup="up(this)">이벤트</span>
+		<span onmousedown="down(this)" onmouseup="up(this)"
+		onmouseover="over(this)" onmouseout="out(this)"
+		onwheel="wheel(event,this)">이벤트</span>
 		가 발생했습니다.
 	</div>
 	<script>
+
+		var width = 1;
 		function down(obj){
 			obj.style.fontStyle = "italic";
-			obj.style.fontSize = "2em";
+			obj.style.fontSize = "1em";
 		}
 		function up(obj){
 			obj.style.fontStyle = "normal";
 			obj.style.fontSize = "1em";
 		}
+		function over(obj){
+			obj.style.borderColor = "violet";
+			obj.style.borderWidth = "1px";
+			obj.style.borderStyle = "solid";
+		}
+		function out(obj){
+			obj.style.borderColor = "lightgray";
+			obj.style.borderWidth = "0px";
+			obj.style.borderStyle = "solid";
+		}
+		function wheel(e,obj){
+			if(e.wheelDelta<0){ //휠을 아래로 굴릴 때
+				width--; //width = width -1;
+				if(width<0) width=0;
+			}else{ //휠을 위로 굴릴 때
+				width++; //width = width +1;
+			}
+			console.log(width);
+
+			obj.style.borderStyle = "solid";
+			obj.style.borderWidth = width + "px";
+		}
+	</script>
+	<style>
+		#div{width: 250px;background-color: skyblue;}
+	</style>
+	<h3>마우스 이벤트객체의 프로퍼티 onmousemove</h3>
+	<img src="../../images/testimg.jpg" onmousemove="where(event)"
+	id="img" width="300" height="300">
+	<div id="div"></div>
+	<script>
+		var div = document.getElementById("div");
+			function where(e){
+				var text = "screenX,screenY = " + e.screenX + "," + e.screenY + "<br>";
+				text+="clientX,clientY = " + e.screenX + "," + e.screenY + "<br>";
+				text+="offsetX,offsetY = " + e.offsetX + "," + e.offsetY;
+				div.innerHTML = text;
+			}
+	</script>
+	<script>
+		var img = document.getElementById("img");
+		document.write(img.width);
 	</script>
 </body>
 </html>
