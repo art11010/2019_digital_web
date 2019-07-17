@@ -15,10 +15,10 @@
 			background-color: skyblue;position: relative;}
 		#thumnail div{float: left;}
 		#thumnail .left{width: 33px;height: 95px;
-			position: absolute;left: 0;top: 0;
+			position: absolute;left: 0;top: 30px;
 			cursor: pointer;text-align: center;}
 		#thumnail .right{width: 33px;height: 95px;
-			position: absolute;right: 0;top: 0;
+			position: absolute;right: 0;top: 30px;
 			cursor: pointer;text-align: center;}
 		#thumnail .container{width: 760px;height: 95px;
 			position: relative;left: 33px;overflow: hidden;}
@@ -29,7 +29,16 @@
 	</style>
 	<script>
 		$(function(){
-			
+			$(".thumb").click(function(){
+				var i = $(this).index();
+				console.log(i);
+				// $("#image > p").css("display","none");
+				// $("#image > p").eq(i).css("display","block");
+				$("#image > p").hide().eq(i).show();
+
+				// css("display","none")
+				// css({"display","none","left":40})
+			});
 		});
 	</script>
 </head>
@@ -61,8 +70,8 @@
 			</div>
 			<div class="container">
 				<ul class="clearfix">
-					<li class="thumb"><img src="gallery/thumb0.jpg" alt="">0</li>
-					<li class="thumb ml0"><img src="gallery/thumb1.jpg" alt="">1</li>
+					<li class="thumb ml0"><img src="gallery/thumb0.jpg" alt="">0</li>
+					<li class="thumb"><img src="gallery/thumb1.jpg" alt="">1</li>
 					<li class="thumb"><img src="gallery/thumb2.jpg" alt="">2</li>
 					<li class="thumb"><img src="gallery/thumb3.jpg" alt="">3</li>
 					<li class="thumb"><img src="gallery/thumb4.jpg" alt="">4</li>
