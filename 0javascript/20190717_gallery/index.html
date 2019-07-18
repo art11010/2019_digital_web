@@ -35,10 +35,33 @@
 				// $("#image > p").css("display","none");
 				// $("#image > p").eq(i).css("display","block");
 				$("#image > p").hide().eq(i).show();
-
 				// css("display","none")
 				// css({"display","none","left":40})
 			});
+			// $(".right").on("click",function(){});
+			var current = 0;
+			$(".right").click(function(){
+				if(current <= 3){
+					current++;//curent = current + 1;
+					if(current == 3){current = 0}
+				} 
+				var num = current * 760 * -1;
+				console.log(num);
+				$(".container > ul").animate({left:num},300);
+				move();
+			});
+			$(".left").click(function(){
+				if(current >= 0){
+					current--;//curent = current - 1;
+					if(current == -1){current = 2;}
+				}
+				move();
+			});
+			function move(){
+				var num = current * 760 * -1;
+				console.log(num);
+				$(".container > ul").animate({left:num},300);
+			}
 		});
 	</script>
 </head>
