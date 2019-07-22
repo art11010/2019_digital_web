@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>문서 제목</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<script src="../js/jquery-3.3.1.min.js"></script>
+</head>
+<style>
+	.wrap{margin: 30px auto;width: 500px;}
+	.wrap ul{}
+	.wrap li{float: left;width: 20%;height: 40px;
+		background-color: #dfe4e9; color: #6a9ad4;
+		text-align: center;line-height: 40px;
+		border-radius: 25px 25px 0 0;
+		cursor: pointer;}
+	.wrap li:hover{background-color: #c3d7ee;color: #000;}
+	.wrap li.active{background-color: #c3d7ee;color: #000;}
+	.txt div{border: 2px solid #c3d7ee;display: none;}
+	.txt div:first-child{display: block;}
+
+	.wrapper{margin: 30px auto;width: 500px;height: 200px;
+		position: relative;overflow: hidden;}
+	.wrapper ul{}
+	.wrapper li{float: left;width: 20%;height: 40px;
+		background-color: #dfe4e9; color: #6a9ad4;
+		text-align: center;line-height: 40px;
+		border-radius: 25px 25px 0 0;
+		cursor: pointer;}
+	.wrapper li:hover{background-color: #c3d7ee;color: #000;}
+	.wrapper li.active{background-color: #c3d7ee;color: #000;}
+	.text{width: 2500px;_height: 130px;position: absolute;}
+	.text div{float: left;width: 500px;border: 2px solid #c3d7ee;}
+</style>
+<script>
+	$(document).ready(function(){
+		$(".wrap > ul > li").click(function(){
+			var yeji = $(this).index();
+			console.log(yeji);
+
+			$(".wrap > ul > li").removeClass();
+			$(this).addClass("active");
+
+			$(".txt > div").hide();
+			$(".txt > div").eq(yeji).fadeIn();
+		});
+
+		$(".wrapper > ul > li").click(function(){
+			var i = $(this).index();
+			$(".wrapper > ul > li").removeClass();
+			$(this).addClass("active");
+			
+			// console.log(i);
+			var move = i * 500 * -1;
+			$(".text").stop().animate({left:move});
+		});
+	});
+</script>
+<body>
+	<div class="wrap clearfix">
+		<ul class="clearfix">
+			<li class="active">Today</li>
+			<li>Story</li>
+			<li>Life</li>
+			<li>Twitter</li>
+			<li>Game</li>
+		</ul>
+		<div class="txt">
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quod saepe, autem provident perspiciatis totam, at voluptates inventore voluptatibus aliquid dolor ducimus, quibusdam, tenetur ipsum in ipsam libero! Voluptas maiores incidunt, ipsum dolor pariatur modi, provident inventore dolore aspernatur totam beatae, ab obcaecati voluptate dolores, iste fugiat vel minus cupiditate.</div>
+			<div>Nesciunt, facere soluta nihil accusamus porro sunt labore autem. Et magni eos nesciunt in ut minima aspernatur molestiae minus nostrum. Nihil porro accusantium vel in, inventore nobis cupiditate dolorem similique, iure possimus fugiat. Ipsa sunt quam, itaque quibusdam. Eum necessitatibus cupiditate voluptatum repellat hic animi laboriosam impedit commodi dignissimos deleniti.</div>
+			<div>Quo voluptas numquam expedita aperiam porro tenetur neque, nemo cum cupiditate explicabo accusantium, at ipsum officia voluptatum illum aliquam possimus in blanditiis laboriosam delectus. Enim fuga minima voluptates earum explicabo, quo quaerat autem mollitia! Quis, nemo, quisquam. Officia illo doloremque commodi repudiandae nisi, dignissimos! Libero perferendis dolor velit iusto distinctio?</div>
+			<div>Veritatis esse vitae blanditiis expedita unde voluptas quasi et doloremque sed, distinctio ducimus a cupiditate quidem soluta placeat velit repellendus labore. Excepturi doloremque explicabo in modi sequi distinctio velit, debitis placeat provident impedit quia praesentium tenetur ipsam eaque mollitia aliquam neque facere dolorem, assumenda voluptatem perspiciatis, sed esse autem similique?</div>
+			<div>Ullam optio hic unde obcaecati fugiat ipsam est? Atque, totam, mollitia! Tempore autem placeat, accusantium possimus accusamus magnam nobis, consectetur explicabo modi qui. Ipsum, maxime, rerum. Assumenda aut, mollitia accusamus? Quis enim, inventore neque, fugit, libero distinctio velit vel architecto excepturi eos voluptates doloribus eaque culpa odit quidem nihil blanditiis.</div>
+		</div>
+	</div>
+	<div class="wrapper">
+		<ul class="clearfix">
+			<li class="active">Today</li>
+			<li>Story</li>
+			<li>Life</li>
+			<li>Twitter</li>
+			<li>Game</li>
+		</ul>
+		<div class="text">
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quod saepe, autem provident perspiciatis totam, at voluptates inventore voluptatibus aliquid dolor ducimus, quibusdam, tenetur ipsum in ipsam libero! Voluptas maiores incidunt, ipsum dolor pariatur modi, provident inventore dolore aspernatur totam beatae, ab obcaecati voluptate dolores, iste fugiat vel minus cupiditate.</div>
+			<div>Nesciunt, facere soluta nihil accusamus porro sunt labore autem. Et magni eos nesciunt in ut minima aspernatur molestiae minus nostrum. Nihil porro accusantium vel in, inventore nobis cupiditate dolorem similique, iure possimus fugiat. Ipsa sunt quam, itaque quibusdam. Eum necessitatibus cupiditate voluptatum repellat hic animi laboriosam impedit commodi dignissimos deleniti.</div>
+			<div>Quo voluptas numquam expedita aperiam porro tenetur neque, nemo cum cupiditate explicabo accusantium, at ipsum officia voluptatum illum aliquam possimus in blanditiis laboriosam delectus. Enim fuga minima voluptates earum explicabo, quo quaerat autem mollitia! Quis, nemo, quisquam. Officia illo doloremque commodi repudiandae nisi, dignissimos! Libero perferendis dolor velit iusto distinctio?</div>
+			<div>Veritatis esse vitae blanditiis expedita unde voluptas quasi et doloremque sed, distinctio ducimus a cupiditate quidem soluta placeat velit repellendus labore. Excepturi doloremque explicabo in modi sequi distinctio velit, debitis placeat provident impedit quia praesentium tenetur ipsam eaque mollitia aliquam neque facere dolorem, assumenda voluptatem perspiciatis, sed esse autem similique?</div>
+			<div>Ullam optio hic unde obcaecati fugiat ipsam est? Atque, totam, mollitia! Tempore autem placeat, accusantium possimus accusamus magnam nobis, consectetur explicabo modi qui. Ipsum, maxime, rerum. Assumenda aut, mollitia accusamus? Quis enim, inventore neque, fugit, libero distinctio velit vel architecto excepturi eos voluptates doloribus eaque culpa odit quidem nihil blanditiis.</div>
+		</div>
+	</div>
+</body>
+</html>
