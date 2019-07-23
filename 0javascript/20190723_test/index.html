@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>문서 제목</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<style>
+		.car{width: 850px;height: 35px;margin: 0 auto;
+			background-color: #2c2d31;
+			position: relative;}
+		
+		.car ul{}
+		.car li{float: left;height: 35px;
+			padding: 0 30px;color:#fff;
+			text-align: center;line-height: 35px;
+			cursor: pointer;}
+		.car li.active{background-color: #fbfbfb;color: #2c2d31;font-weight: bold;}
+		.car li:hover{background-color: #fbfbfb;color: #2c2d31;font-weight: bold;}
+		.car li:first-child{padding: 0;}
+		.car li:last-child{margin-right: 100px;}
+		.car .img{padding-top: 2px;background-color: #fbfbfb;position: relative;}
+		.car .img > img{position: absolute;right: 0;
+			padding: 10px;cursor: pointer;}
+		.car .img > div{}
+		.car .img > div > li{float: left;}
+		.sCount{margin: 0 auto;width: 70px;height: 35px;
+			margin-top: 100px;
+			background-color: #8781bd;color: #f2f2f2;
+			text-align: center;line-height: 34px;
+			border: 1px solid #7da7d9;
+			border-radius: 25px;cursor: pointer;}
+		.sCount:hover{background-color: #f2f2f2;color: #8781bd;}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$(".img > div").hide();
+			$(".img > div").eq(0).show();
+			
+			var sCount = $(".img > div").eq(0).find("img").length;
+			console.log(sCount);
+			$(".sCount").html(sCount);
+
+			$(".car > ul > li").click(function(){
+				var ye = $(this).index()-1;
+				// console.log(ye);
+				$(".car > ul > li").removeClass();
+				$(this).addClass("active");
+				$(".img > div").hide();
+				$(".img > div").eq(ye).fadeIn();
+				$(".img > img").show();
+
+				sCount = $(".img > div").eq(ye).find("img").length;
+				console.log(sCount);
+				$(".sCount").html(sCount);
+			});
+
+			$(".img > img").click(function(){
+				$(".img > div").hide();
+				$(".img > img").hide();
+				$(".img > ul > li").removeClass();
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="car">
+		<ul class="clearfix">
+			<li>
+				<img src="images/tab_logo.jpg" alt="">
+			</li>
+			<li class="active">승용</li>
+			<li>견적</li>
+			<li>상담</li>
+			<li>이벤트</li>
+		</ul>
+		<div class="img">
+			<img src="images/x.jpg" alt="1">
+			<div class="clearfix">
+				<img src="images/car1_01.gif" alt="1">
+				<img src="images/car1_02.gif" alt="2">
+				<img src="images/car1_03.gif" alt="3">
+				<img src="images/car1_04.gif" alt="4">
+				<img src="images/car1_05.gif" alt="5">
+				<img src="images/car1_06.gif" alt="6">
+			</div>
+			<div class="clearfix">
+				<img src="images/estimate_01.gif" alt="1">
+				<img src="images/estimate_02.gif" alt="2">
+				<img src="images/estimate_03.gif" alt="3">
+				<img src="images/estimate_04.gif" alt="4">
+			</div>
+			<div class="clearfix">
+				<img src="images/consult_01.gif" alt="1">
+				<img src="images/consult_02.gif" alt="2">
+				<img src="images/consult_03.gif" alt="3">
+				<img src="images/consult_04.gif" alt="4">
+			</div>
+			<div class="clearfix">
+				<img src="images/event_01.gif" alt="1">
+				<img src="images/event_02.gif" alt="2">
+			</div>
+		</div>
+	</div>
+	<div class="sCount"></div>
+</body>
+</html>
