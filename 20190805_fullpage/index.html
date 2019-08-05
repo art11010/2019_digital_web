@@ -14,10 +14,18 @@
 				anchors : ["1st","2nd","3rd","4st"],
 				menu : topMenu,
 				navigation:true,
+				slidesNavigation:true,
 				navigationPosition:'right',
-				navigationTooltips:["menu1","menu2","menu3","menu4"]
+				navigationTooltips:["menu1","menu2","menu3","menu4"],
+				afterLoad:function(anchorslink,index){
+					console.log("anchor : " + anchorslink + ", index : " + index);
+					if(index == 2){
+						$("#onView").addClass("move");
+					}else{
+						$("#onView").removeClass("move");
+					}
+				}
 			});
-			
 		});
 	</script>
 	<style>
@@ -31,7 +39,7 @@
 			background-size:cover;}
 		.main{width: 400px;position: absolute;left: 50%;color:#fff;
 			transform: translate(-50%,-50%);text-align: center;}
-		.main h3{font-size: 3em;text-shadow: 1px 1px 1px #333;}
+		.main h3{font-size: 3em;text-shadow: 1px 1px 3px #333;}
 		.main p{font-size: 1.5em;margin-bottom: 20px;}
 		.main a{display: block;width: 100px;height: 40px;
 			border : 1px solid #fff;
@@ -49,6 +57,34 @@
 			#navTop li.active{background-color: #f00;}
 			#navTop li.active a{color:white;font-weight:bold;}
 		.right{right: 30px;}
+
+		#page2{position: relative;}
+		#page2 .main{position: absolute;top: 0;opacity: 0;transition: 1.2s;}
+		#page2 .main.move{position: absolute;top: 50%;opacity: 1;}
+		
+		#page1{position: relative;}
+		.scroll{width: 100px;height: 100px;
+			position: absolute;bottom: 20px;left: 50%;
+			transform: translateX(-50%);
+			animation: jing 1s infinite alternate;}
+		.bar1{width: 40px;height: 3px;position: absolute;
+			background-color: #fff;top: 40%;left: 41px;transform: rotate(-45deg);}
+		.bar2{width: 40px;height: 3px;position: absolute;
+			background-color: #fff;top: 40%;left: 14px;transform: rotate(45deg);}
+		.scroll p{position: absolute;bottom: 15px;text-align: center;width: 100%;
+			color: #fff;}
+			@keyframes jing{
+				from{bottom: 10px;}
+				to{bottom: 50px;}
+			}
+
+		.slide{position: relative;}
+		.slide .sView1,
+		.slide .sView2{position: absolute;width: 1024px;height: 500px;
+			left: 50%;transform: translate(-50%,-50%);}
+		.sView1{background-color: #f00;}
+		.sView2{background-color: #0f0;}
+
 	</style>
 </head>
 <body>
@@ -67,16 +103,34 @@
 				<p>Lorem ipsum dolor sit.</p>
 				<a href="#">more</a>
 			</div>
+			<a href="#2nd">
+				<div class="scroll">
+					<div class="bar1"></div>
+					<div class="bar2"></div>
+					<p>SCROLL</p>
+				</div>
+			</a>
 		</div>
 		<div class="section page" id="page2" data-anchor="2nd">
-			<div class="main">
+			<div class="main" id="onView">
 				<h3>Lorem ipsum.</h3>
 				<p>Lorem ipsum dolor sit.</p>
 				<a href="#">more</a>
 			</div>
 		</div>
 		<div class="section page" id="page3" data-anchor="3rd"></div>
-		<div class="section page" id="page4" data-anchor="4st"></div>
+		<div class="section page" id="page4" data-anchor="4st">
+			<div class="slide">
+				<div class="sView1">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, maxime!
+				</div>
+			</div>
+			<div class="slide">
+				<div class="sView2">
+					Voluptatem in, cum ea aut, magni beatae repudiandae quis assumenda.
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
