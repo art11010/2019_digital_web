@@ -10,12 +10,33 @@
 		body{background:#545454;}
 		.wrap{width: 950px;margin: 0 auto;padding-bottom: 400px;}
 		#top_menu{position: fixed;width: 950px;height: 115px;
-			background:#545454;}
+			background: rgba(0,0,0,0.5);
+			_background:#545454;}
 		#top_menu h1{float: left;width: 125px;padding-top: 40px;}
 		#top_menu ul.nav{float: right;}
-		#top_menu ul li{float: right;}
+		#top_menu ul li{float: left;}
 		#top_menu ul li a{display: block;padding: 60px 0 0 60px;}
+
+		#contents{padding-top: 115px;}
+		img{display: block;}
 	</style>
+	<script>
+		$(document).ready(function(){
+			var menu = $("#top_menu > ul > li"); //클릭 메뉴
+			var contents = $("#contents > div"); //이미지 위치
+
+			menu.click(function(){
+				var i = $(this).index();
+				var tt = contents.eq(i).offset().top-115;
+				console.log(tt);
+				$("html").stop().animate({scrollTop:tt})
+			});
+			$(window).scroll(function(){
+				var sct = $(window).scrollTop();
+				console.log("스크롤값 : " + sct)
+			})
+		});
+	</script>
 </head>
 <body>
 	<div class="wrap">
