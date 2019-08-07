@@ -15,7 +15,9 @@
 		#top_menu h1{float: left;width: 125px;padding-top: 40px;}
 		#top_menu ul.nav{float: right;}
 		#top_menu ul li{float: left;}
-		#top_menu ul li a{display: block;padding: 60px 0 0 60px;}
+		#top_menu ul li a{display: block;padding: 60px 0 0 60px;
+			color:#fff;}
+		#top_menu ul li.on a{color:red;font-weight: bold;}
 
 		#contents{padding-top: 115px;}
 		img{display: block;}
@@ -33,8 +35,33 @@
 			});
 			$(window).scroll(function(){
 				var sct = $(window).scrollTop();
-				console.log("스크롤값 : " + sct)
-			})
+				console.log("스크롤값 : " + sct);
+				// if(sct >= contents.eq(0).offset().top-115){
+				// 	menu.removeClass("on");
+				// 	menu.eq(0).addClass("on");
+				// }
+				// if(sct >= contents.eq(1).offset().top-115){
+				// 	menu.removeClass("on");
+				// 	menu.eq(1).addClass("on");
+				// }
+				// if(sct >= contents.eq(2).offset().top-115){
+				// 	menu.removeClass("on");
+				// 	menu.eq(2).addClass("on");
+				// }
+				// contents.each(function(index){
+				// 	if(sct >= $(this).offset().top-115){
+				// 		menu.removeClass("on");
+				// 		menu.eq(index).addClass("on");
+				contents.each(function(index){
+					//if(sct >= $(this).offset().top-115){}
+					if(sct >= contents.eq(index).offset().top-115){
+						menu.removeClass("on");
+						menu.eq(index).addClass("on");
+					}
+					// var i = $(this).index();
+					// console.log("div index : " + i);
+				});
+			});
 		});
 	</script>
 </head>
@@ -43,7 +70,7 @@
 		<header id="top_menu" class="cleafix">
 			<h1>logo</h1>
 			<ul class="nav clearfix">
-				<li><a href="#paper">paper</a></li>
+				<li class="on"><a href="#paper">paper</a></li>
 				<li><a href="#works">works</a></li>
 				<li><a href="#email">email</a></li>
 			</ul>
