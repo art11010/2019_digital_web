@@ -37,7 +37,7 @@
 				$(".banner > ul").stop().animate({left:tt});
 			};
 			function slider1(){
-				i =current + 1;
+				i =current + 1; //current++;
 				if(i == 5){
 					current=4;
 					i=0;
@@ -80,9 +80,9 @@
 				var currentEl = $(".banner > ul > li").eq(current-1);
 				var nextEl = $(".banner > ul > li").eq(current);
 				nextEl.css({opacity:0,"z-index":zI++}).stop().animate({opacity:1},1100);
-			}
+			};
 
-			setInterval(slider4,3000);
+			setInterval(slider1,3000);
 		});
 	</script>
 </head>
