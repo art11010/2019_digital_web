@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>slide pager</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/jquery.mousewheel.min.js"></script>
+</head>
+<style>
+	/*btn*/
+	#banner{width: 1000px;margin: 0 auto;}
+	.slide{width: 100%;height: 400px;overflow: hidden;}
+	.slide ul{position: relative;}
+	.slide li{width: 1000px;position: absolute;}
+	.slide li:nth-child(1){z-index: 1;}
+
+	.pager{position:relative;height:40px;}
+	.pager span{display:block;width:12px;height:12px;
+		float:left;margin: 5px;
+		background-color: #808080;
+		border-radius: 6px;cursor: pointer;
+		text-indent:-9999px;}
+		.pager span.active{background-color: #4d4d4d;}
+</style>
+<body>
+	<section id="banner">
+		<div class="slide">
+			<ul class=clearfix>
+				<li><img src="../../images/images01.jpg" alt="이미지1"></li>
+				<li><img src="../../images/images02.jpg" alt="이미지2"></li>
+				<li><img src="../../images/images03.jpg" alt="이미지3"></li>
+				<li><img src="../../images/images04.jpg" alt="이미지4"></li>
+				<li><img src="../../images/images05.jpg" alt="이미지5"></li>
+			</ul>
+		</div>
+		<div class="pager">
+			<span class="active">1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+		</div>
+		<div class="btn">
+			<span class="bt_prev">이전</span>
+			<span class="bt_next">다음</span>
+		</div>
+	</section>
+	<script>
+			var current = 0;
+			var i;
+			var zI = 1;
+			var pager = $("#banner .pager span");
+			
+			$(".bt_next").click(function(){ //next button
+				i = current + 1
+				if(i == 5){
+					current = 4;
+					i = 0;
+				}
+				slideView("next");
+			});
+			$(".bt_prev").click(function(){ //perv button
+				i = current - 1
+				if(i == -1){
+					current = 0;
+					i = 4;
+				}
+				slideView("prev");
+			});
+
+			pager.click(function(){ //pager event
+				i = $(this).index();
+				console.log(i);
+				slideView("next");
+			});
+
+			function slideView(view){ 
+				var current2 = $(".slide > ul > li").eq(current); //current
+				var i2 = $(".slide > ul > li").eq(i); //current
+
+				// pager.removeClass("active");
+				// pager.eq(i).addClass("active");  ↓ 같은 거
+				pager.removeClass("active").eq(i).addClass("active");
+
+				if(view == "next"){
+					current2.css({left:0}).stop().animate({left:-1000},1100);
+					i2.css({left:1000,"z-index":zI++}).stop().animate({left:0},800);
+				}else{
+					current2.css({left:0}).stop().animate({left:1000},1100);
+					i2.css({left:-1000,"z-index":zI++}).stop().animate({left:0},800);
+				}
+				current = i;
+			}
+
+			$(window).mousewheel(function(event,delta){ 
+				console.log(delta);
+				if(delta < 0){
+					$(".bt_next").trigger("click");
+				}else{
+					$(".bt_prev").trigger("click");
+				}
+			});
+			function trigger(){
+				// $선택자.trigger("이벤트명");
+				$(".bt_next").trigger("click");
+			}
+			setInterval(trigger,3000);
+	</script>
+</body>
+</html>
