@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>slide full page</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/jquery.mousewheel.min.js"></script>
+</head>
+<style>
+	html,body{height: 100%;}
+	/*btn*/
+	#banner{width: 100%;height: 100%;margin: 0 auto;}
+	.slide{width: 100%;height: 100%;position: relative;overflow: hidden;}
+	.slide ul{}
+	.slide li{width: 100%;height: 100%;position: absolute;}
+	.slide li:nth-child(1){z-index: 1;background-color: pink;}
+		.slide li:nth-child(1) .car01{position:absolute;
+			top: 20%;left: 50%;
+			transform: translate(-50%,-50%);}
+
+	.slide li:nth-child(2){background-color: plum;}
+		.slide li:nth-child(2) .car02{position:absolute;
+			top: 50%;left: 10%;
+			transform: translate(-50%,-50%);opacity: 0;
+			transition: 1s;}
+		.slide li:nth-child(2) .car02.move{left: 50%;opacity: 1;}
+
+	.slide li:nth-child(3){background-color: lightpink;}
+	.slide li:nth-child(4){background-color: peachpuff;}
+	.slide li:nth-child(5){background-color: palegoldenrod;}
+
+	.btn{width: 140px;position: fixed;
+		top: 30px;right: 0;
+		z-index: 9999999999999999999999999999999;}
+	.bt_prev, .bt_next{display: block;float: left;
+		width: 60px;height: 35px;
+		text-align: center;line-height: 30px;
+		border: 2px solid lightyellow;
+		border-radius: 20px;
+		cursor: pointer;margin: 5px;}
+
+	.pager{height: 25px;position: fixed;
+		top: 0;right: 0;
+		z-index: 9999999999999999999999999999999;}
+	.pager span{display:block;width:12px;height:12px;
+		float:left;margin: 5px;
+		background-color: #808080;
+		border-radius: 6px;cursor: pointer;
+		text-indent:-9999px;}
+		.pager span.active{background-color: #4d4d4d;}
+</style>
+<body>
+	<section id="banner">
+		<div class="slide">
+			<ul class=clearfix>
+				<li>
+					<img src="../../images/images01.jpg" alt="이미지1">
+					<div class="car01">
+						<img src="../../images/car.png" alt="차">
+					</div>
+				</li>
+				<li>
+					<img src="../../images/images02.jpg" alt="이미지2">
+					<div class="car02">
+						<img src="../../images/car.png" alt="차">
+					</div>
+				</li>
+				<li><img src="../../images/images03.jpg" alt="이미지3"></li>
+				<li><img src="../../images/images04.jpg" alt="이미지4"></li>
+				<li><img src="../../images/images05.jpg" alt="이미지5"></li>
+			</ul>
+		</div>
+		<div class="pager">
+			<span class="active">1</span>
+			<span>2</span>
+			<span>3</span>
+			<span>4</span>
+			<span>5</span>
+		</div>
+		<div class="btn clearfix">
+			<span class="bt_prev">이전</span>
+			<span class="bt_next">다음</span>
+		</div>
+	</section>
+	<script>
+		var current = 0;
+		var i;
+		var zI = 1;
+		
+		$(".bt_next").click(function(){
+			i = current + 1;
+			if(i == 5){
+				current = 4;
+				i = 4;
+			}
+			slideView("next");
+			viewNow(); //현재위치
+		});
+		$(".bt_prev").click(function(){
+			i = current - 1;
+			if(i == -1){
+				current = 0;
+				i = 0;
+			}
+			slideView("prev");
+			viewNow(); //현재위치
+		});
+		$(".pager > span").click(function(){
+			i = $(this).index();
+			// console.log(i);
+			slideView("next");
+			viewNow(); //현재위치
+		});
+
+		function slideView(view){
+			$(".pager > span").removeClass("active").eq(i).addClass("active");
+			if(current != i){
+				if(view == "next"){
+					// $(".slide > ul > li").eq(current).css({left:0}).stop().animate({left: -1000},1000);
+					$(".slide > ul > li").eq(i).css({top:"100%","z-index": zI++}).stop().animate({top: 0},1000);
+				}else{
+					// $(".slide > ul > li").eq(current).css({left:0}).stop().animate({left: 1000},1000);
+					$(".slide > ul > li").eq(i).css({top:"-100%","z-index": zI++}).stop().animate({top: 0},1000);
+				}
+				current = i;
+			}
+		}
+		$(window).mousewheel(function(event,delta){
+			// console.log(delta);
+			if(delta < 0){
+				$(".bt_next").trigger("click");
+			}else{
+				$(".bt_prev").trigger("click");
+			}
+		});
+
+		function trigger(){
+			$(".bt_next").trigger("click");
+		}
+		// setInterval(trigger,3000);
+
+		function viewNow(){ //현재위치
+			console.log(current);
+			if(current == 0){
+				$(".car01").css({opacity:0}).stop().animate({top:"50%",opacity:1},1000);
+			}else{
+				$(".car01").stop().animate({top:"60%",opacity:0});
+			}
+			if(current == 1){
+				$(".car02").addClass("move");
+			}else{
+				$(".car02").removeClass("move");
+			}
+		}
+	</script>
+</body>
+</html>
