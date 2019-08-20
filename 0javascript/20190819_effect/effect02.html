@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>effect02</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function(){
+			// $(".btn1").on("이벤트명",function(){});
+			// $(".btn1").이벤트명(function(){});
+			$(".btn1").on("click",function(){
+				// $(".txt1").animate({"margin-left":500},2000,"linear");
+				$(".txt1").animate({marginLeft:"50%",fontSize:"30px"},
+					2000,"linear",function(){
+						alert("이동 완료");
+					});
+			});
+			$(".btn2").click(function(){
+				$(".txt2").stop().delay(2000).animate({marginLeft:"+=50px"},
+					function(){
+						$(".txt2").addClass("white");
+					});
+			});
+			$(".btn3").click(moveEl);
+			function moveEl(){
+				$(".txt3").stop().animate({marginLeft:"+=50px"});
+				$(".txt4").animate({marginLeft:"+=50px"}).stop();
+				$(".txt5").animate({marginLeft:"+=50px"}).stop(true,true);
+			};
+		});
+	</script>
+	<style>
+		.txt2{background-color: hotpink;}
+		.txt2.white{color:#fff;}
+		p{width: 100px;text-align: center;}
+		.txt3{background-color: pink;}
+		.txt4{background-color: coral;}
+		.txt5{background-color: lightpink;}
+	</style>
+</head>
+<body>
+	<div>
+		<button class="btn1">BUTTON1</button>
+	</div>
+	<span class="txt1">MOVE</span>
+	<div>
+		<button class="btn2">BUTTON2</button>
+	</div>
+	<span class="txt2">50px MOVE</span>
+	<div>
+		<button class="btn3">BUTTON3</button>
+	</div>
+	<p class="txt3">효과1</p>
+	<p class="txt4">효과2</p>
+	<p class="txt5">효과3</p>
+</body>
+</html>
