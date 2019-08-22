@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta charset="UTF-8">
+	<title>effect04</title>
+	<link rel="stylesheet" href="../../css/reset.css">
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		$(function(){
+			// 1
+			// function move(){
+			// 	if(!$(".box").is(":animated")){ //애니메이션 재실행 시작
+			// 		$(".box")
+			// 		.animate({left:469},1000)
+			// 		.animate({top:469},1000)
+			// 		.queue(function(){
+			// 			$(".box")
+			// 			.css("background","red")
+			// 			.dequeue();
+			// 		})
+			// 		.animate({left:0},1000)
+			// 		.animate({top:0},1000)
+			// 		.queue(function(){
+			// 			$(".box")
+			// 			.css("background","black")
+			// 			.dequeue()
+			// 		})
+			// 	} //애니메이션 재실행 끝
+			// }
+			// move();
+			// setInterval(move,3000);
+
+			// $(".btn").click(function(){
+			// 	move();
+			// });
+
+
+			// 2
+			function carMove(){
+				// console.log($(".carWrap img").length);
+				if($(".carWrap img").length == 0){
+					$(".carWrap").html("NO CAR <br> <img src='../../images/car.png'>");
+					return;
+				}
+				$(".carWrap img:eq(0)")
+				.animate({left:"-=100"},1000,function()
+					{
+					$(".carWrap img:eq(0)").animate({left:"+=100"},1000,carMove)
+				})
+			}
+			carMove();
+
+			$(".btn").click(function(){
+				$(".carWrap img:animated").animate({left:"-=400"},function(){
+					$(this).remove();
+					carMove();
+				})
+			});
+		});
+	</script>
+	<style>
+		/*.boxWrap{width: 500px;height: 500px;
+			margin: 0 auto;border:1px solid #000;
+			position: relative;}
+		.box{width: 30px;height: 30px;
+			border-radius:15px;
+			background-color: #000;
+			position: absolute;}*/
+
+		.carWrap{height: 220px;margin-top: 50px;
+			text-align: center;}
+		.carWrap img{position: relative;}
+	</style>
+</head>
+<body>
+	<!-- <button class="btn">start</button>
+	<div class="boxWrap">
+		<div class="box"></div>
+	</div> -->
+	<div class="carWrap">
+		<img src="../../images/car.png" alt="이미지1">
+		<img src="../../images/car.png" alt="이미지2">
+		<img src="../../images/car.png" alt="이미지3">
+		<img src="../../images/car.png" alt="이미지4">
+	</div>
+	<button class="btn">next car</button>
+</body>
+</html>
