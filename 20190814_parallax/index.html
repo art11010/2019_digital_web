@@ -32,10 +32,11 @@
 	</style>
 	<script>
 		$(document).ready(function(){
-			$(".menu a").click(function(){});
-			var target = $(this.hash);
-			var offsetTop = target.offsetTop().top;
-			$("html").aimate({scrollTop:offsetTop})
+			$(".menu a").click(function(){
+				var target = $(this.hash);
+				var offsetTop = target.offset().top;
+				$("html").animate({scrollTop:offsetTop});
+			});
 		});
 	</script>
 </head>
