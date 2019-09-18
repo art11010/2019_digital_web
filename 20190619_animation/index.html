@@ -69,13 +69,14 @@
 			line-height: 40px;text-align: center;
 			background-color: skyblue;
 			position: relative;}
-		.bar2{width: 200px;height: 5px;
+		.bar2{width: 0px;height: 5px;
 			background-color: #f00;
 			position: absolute;
 			transition: 0.3s;
-			bottom: 0;
-			transform: scaleX(0);}
-		.button2:hover .bar2{transform: scaleX(1);}
+			bottom: 0;left: 50%;
+			transform: translateX(-50%);
+			/* transform: scaleX(0); */}
+		.button2:hover .bar2{/* transform: scaleX(1); */width: 200px;}
 	</style>
 </head>
 <body>
@@ -231,7 +232,7 @@
 			font-size: 40px;}
 
 		.text_wrapper h2 span{display: inline-block;
-			animation-name:tani;
+			animation-name:yeji;
 			animation-duration: 1s;
 			animation-fill-mode: forwards;
 			opacity: 0;}
@@ -241,7 +242,7 @@
 		.text_wrapper h2 span:nth-child(5){animation-delay:0.8s;}
 		.text_wrapper h2 span:nth-child(6){animation-delay:1s;}
 		.text_wrapper h2 span:nth-child(7){animation-delay:1.2s;}
-		@keyframes tani{
+		@keyframes yeji{
 			from{transform: translate(50px,-50px) rotate(-180deg) scale(5);}
 			to{transform:translate(0) rotate(0) scale(1);opacity: 1;}
 		}
